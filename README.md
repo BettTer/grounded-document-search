@@ -8,7 +8,7 @@ Grounded Document Search is a portfolio project for finding evidence across mult
 
 The first dataset uses original notes on Yu-Gi-Oh! card interactions and summoning rules, with links to official references. For example, answering whether a Link Summon is possible after a card effect resolves can require both the card's restriction and the general summoning rules. A second dataset of fictional engineering runbooks will test the same workflow in a different domain.
 
-**Status:** The Python CLI can index the English evidence from the bilingual corpus in PostgreSQL. Keyword search, the evaluation command, and the cited-answer demo are the next parts of the first milestone. Planned comparisons cover keyword, vector, and hybrid retrieval, measuring evidence recall, citation support, and latency.
+**Status:** The Python CLI can index the English evidence from the bilingual corpus in PostgreSQL. Keyword search and a repeatable retrieval evaluation are available. The cited-answer demo is next. Planned comparisons cover keyword, vector, and hybrid retrieval, measuring evidence recall, citation support, and latency.
 
 [First evaluation case](docs/first-evaluation-case.md#english)
 
@@ -18,11 +18,11 @@ Grounded Document Search 是一个跨文档检索作品。它要把散落在不�
 
 第一套语料是原创的游戏王卡片交互和召唤规则笔记，并附官方资料链接。例如，要判断某个卡片效果结算后还能否进行连接召唤，可能需要同时查到该效果的限制和通用召唤规则。第二套使用自编的工程运维手册，验证同一套流程能否换个领域复跑。
 
-**当前状态**：Python 命令行已能将双语语料的英文证据导入 PostgreSQL。第一个里程碑接下来会加入关键词检索、可重复运行的评测命令和带引用的问答示例。后续计划比较关键词、向量和混合检索，记录证据召回率、引用支持情况和延迟。
+**当前状态**：Python 命令行已能将双语语料的英文证据导入 PostgreSQL。关键词检索和可重复运行的检索评测已实现，接下来是带引用的问答示例。后续计划比较关键词、向量和混合检索，记录证据召回率、引用支持情况和延迟。
 
 [首条评测题](docs/first-evaluation-case.md#简体中文)
 
-## Run indexing / 运行导入
+## Quick start / 快速启动
 
 From the repository root, use Python 3.10+ and Docker Compose. The command indexes the English text for each evidence section and retains its source link.
 
@@ -40,4 +40,16 @@ Expected output / 预期输出
 
 ```text
 Indexed 7 evidence sections for yugioh.
+```
+
+### Search and evaluate / 检索与评测
+
+Search returns ranked passages and source links. The evaluation reports Recall@1/3/5, complete evidence coverage, missing passages, and retrieval latency. Default OR matching accepts any query term. Use `--match and` to compare with all-term matching.
+
+检索返回排序后的段落和来源链接。评测记录 Recall@1/3/5、全部证据找齐情况、遗漏段落和检索耗时。默认 OR 匹配允许任一查询词命中，可以用 `--match and` 对比全词匹配。
+
+```bash
+python -m grounded_search search "Can Monster Reborn revive a Link Monster?" --corpus yugioh
+python -m grounded_search eval --corpus yugioh --dataset evals/yugioh-smoke.json
+python -m grounded_search eval --corpus yugioh --dataset evals/yugioh-smoke.json --match and
 ```
