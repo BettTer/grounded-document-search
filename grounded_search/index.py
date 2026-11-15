@@ -6,7 +6,7 @@ from psycopg import Connection
 SECTION = re.compile(r"^## (.+)$", re.MULTILINE)
 EVIDENCE_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 BILINGUAL_BODY = re.compile(
-    r"### English\n\s*(?P<english>.+?)\n### 简体中文\n\s*"
+    r"### English\n\s*(?P<english>.+?)\n### \u7b80\u4f53\u4e2d\u6587\n\s*"
     r"(?P<chinese>.+?)\n\s*\[[^\]\n]+\]\((?P<url>https://[^\s)]+)\)\s*",
     re.DOTALL,
 )

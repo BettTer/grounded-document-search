@@ -2,3 +2,4 @@
 /_LocalDoc/
 /.venv/
 __pycache__/
+/evals/runs/
