@@ -1,0 +1,154 @@
+[
+  {
+    "case_id": "direct-link-after-search",
+    "tags": [
+      "multi_document",
+      "sequencing"
+    ],
+    "question": {
+      "en": "Ecclesia's search effect has resolved. Can I Link Summon from the Extra Deck into a Main Monster Zone pointed to by a Link Arrow?",
+      "zh": "艾克莉西娅的检索效果已结算。我还能从额外卡组连接召唤到箭头指向的主怪兽区吗？"
+    },
+    "expected_evidence_ids": [
+      "ecclesia-extra-deck-lock",
+      "link-summon-origin"
+    ],
+    "expected_answer": {
+      "en": "No. The zone does not change the source of the summon, so Ecclesia's Extra Deck restriction applies.",
+      "zh": "不能。落点不改变召唤来源，仍受艾克莉西娅的额外卡组限制。"
+    },
+    "expected_gap": null,
+    "expected_status": "answered"
+  },
+  {
+    "case_id": "revive-properly-summoned-link",
+    "tags": [
+      "multi_document",
+      "revival"
+    ],
+    "question": {
+      "en": "Ecclesia's search has resolved. A Link Monster in the Graveyard was properly Link Summoned earlier and has no separate restriction. I have an available Main Monster Zone. Can Monster Reborn revive it, assuming all other requirements are met?",
+      "zh": "艾克莉西娅的检索已结算。墓地里的连接怪兽此前正规连接召唤过，本身没有其他限制，我也有可用的主怪兽区。其他条件满足时，可以用死者苏生复活它吗？"
+    },
+    "expected_evidence_ids": [
+      "ecclesia-extra-deck-lock",
+      "monster-reborn-origin",
+      "proper-summon-before-revival"
+    ],
+    "expected_answer": {
+      "en": "Yes. The target meets the prior-summon requirement and Monster Reborn summons it from the Graveyard, outside Ecclesia's restriction.",
+      "zh": "可以。目标满足正规召唤条件，这次从墓地特召，不受艾克莉西娅限制。"
+    },
+    "expected_gap": null,
+    "expected_status": "answered"
+  },
+  {
+    "case_id": "revive-direct-dump",
+    "tags": [
+      "multi_document",
+      "revival"
+    ],
+    "question": {
+      "en": "Ecclesia's search has resolved. A Link Monster was sent straight from the Extra Deck to the Graveyard without being summoned. Can Monster Reborn revive it?",
+      "zh": "艾克莉西娅的检索已结算。一只连接怪兽未经召唤就从额外卡组直接送进墓地。可以用死者苏生复活它吗？"
+    },
+    "expected_evidence_ids": [
+      "ecclesia-extra-deck-lock",
+      "monster-reborn-origin",
+      "proper-summon-before-revival"
+    ],
+    "expected_answer": {
+      "en": "No. It was never properly summoned. Ecclesia's restriction does not apply to the Graveyard summon.",
+      "zh": "不能。目标没有经过正规召唤，问题不在艾克莉西娅的限制。"
+    },
+    "expected_gap": null,
+    "expected_status": "answered"
+  },
+  {
+    "case_id": "revival-history-missing",
+    "tags": [
+      "multi_document",
+      "missing_game_state",
+      "revival"
+    ],
+    "question": {
+      "en": "Ecclesia's search has resolved. There is a Link Monster in my Graveyard with no separate restriction, but I haven't said how it got there. Assume I have an available zone and all other requirements are met. Can I target it with Monster Reborn?",
+      "zh": "艾克莉西娅的检索已经结算。我的墓地里有一只没有额外限制的连接怪兽，但我没说它怎么进的墓地。假设有空位且其他条件满足，可以用死者苏生选它吗？"
+    },
+    "expected_evidence_ids": [
+      "ecclesia-extra-deck-lock",
+      "monster-reborn-origin",
+      "proper-summon-before-revival"
+    ],
+    "expected_answer": {
+      "en": "Ecclesia does not block revival from the Graveyard. Ask whether the target was properly summoned before deciding whether it can be revived.",
+      "zh": "艾克莉西娅的限制不覆盖墓地复活。能否复活需要确认目标此前是否正规召唤过。"
+    },
+    "expected_gap": {
+      "en": "Whether the target was previously properly summoned.",
+      "zh": "目标此前是否经过正规召唤。"
+    },
+    "expected_status": "partial"
+  },
+  {
+    "case_id": "revival-zone",
+    "tags": [
+      "single_evidence",
+      "revival"
+    ],
+    "question": {
+      "en": "My Link Monster is eligible to be resurrected. Do I need a Link Arrow pointing at the Main Monster Zone where it will return?",
+      "zh": "我的连接怪兽符合复活条件。它要回到主怪兽区，那个区域必须有连接箭头指向吗？"
+    },
+    "expected_evidence_ids": [
+      "link-revival-zone"
+    ],
+    "expected_answer": {
+      "en": "No. An available Main Monster Zone does not need to be pointed to for revival.",
+      "zh": "不用。复活到可用的主怪兽区时无需箭头指向。"
+    },
+    "expected_gap": null,
+    "expected_status": "answered"
+  },
+  {
+    "case_id": "ecclesia-only-hand-effect",
+    "tags": [
+      "single_document",
+      "sequencing"
+    ],
+    "question": {
+      "en": "I used only Ecclesia's own effect to Special Summon her from the hand and did not use her search effect. Did her effects lock me out of Extra Deck summons for the rest of the turn?",
+      "zh": "我只用艾克莉西娅自己的效果从手牌特召了她，没有发动检索。她的效果会限制我这回合接下来从额外卡组特召吗？"
+    },
+    "expected_evidence_ids": [
+      "ecclesia-extra-deck-lock"
+    ],
+    "expected_answer": {
+      "en": "No. The restriction comes from resolving the separate search effect.",
+      "zh": "不会。限制来自另一个检索效果的结算。"
+    },
+    "expected_gap": null,
+    "expected_status": "answered"
+  },
+  {
+    "case_id": "revival-under-necrovalley",
+    "tags": [
+      "missing_corpus_evidence",
+      "revival"
+    ],
+    "question": {
+      "en": "Does an active Necrovalley change whether I can use Monster Reborn on a properly summoned Link Monster in the Graveyard?",
+      "zh": "场上的王家长眠之谷效果正在适用，这会改变我能否用死者苏生复活墓地里正规召唤过的连接怪兽吗？"
+    },
+    "expected_evidence_ids": [],
+    "expected_answer": {
+      "en": "The current corpus does not establish Necrovalley's effect on this interaction.",
+      "zh": "当前语料缺少判断王家长眠之谷如何影响这次复活的依据。"
+    },
+    "expected_gap": {
+      "en": "Necrovalley's card text or an applicable ruling.",
+      "zh": "王家长眠之谷的卡文或适用裁定。"
+    },
+    "expected_status": "insufficient"
+  }
+]
