@@ -10,7 +10,7 @@ The first dataset uses original notes on Yu-Gi-Oh! card interactions and summoni
 
 **Status:** The Python CLI can index the English evidence from the bilingual corpus in PostgreSQL. Keyword search and a repeatable retrieval evaluation are available. The cited-answer demo is next. Planned comparisons cover keyword, vector, and hybrid retrieval, measuring evidence recall, citation support, and latency.
 
-[First evaluation case](docs/first-evaluation-case.md#english)
+[First evaluation case](docs/first-evaluation-case.md#english) · [Evidence control experiment](docs/evidence-control-experiment.md#english)
 
 ## 简体中文
 
@@ -20,7 +20,7 @@ Grounded Document Search 是一个跨文档检索作品。它要把散落在不�
 
 **当前状态**：Python 命令行已能将双语语料的英文证据导入 PostgreSQL。关键词检索和可重复运行的检索评测已实现，接下来是带引用的问答示例。后续计划比较关键词、向量和混合检索，记录证据召回率、引用支持情况和延迟。
 
-[首条评测题](docs/first-evaluation-case.md#简体中文)
+[首条评测题](docs/first-evaluation-case.md#简体中文) · [证据对照实验](docs/evidence-control-experiment.md#简体中文)
 
 ## Quick start / 快速启动
 
